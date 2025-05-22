@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rental Price Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 40px;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: auto;
+        }
+        input[type="number"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background: #28a745;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Rental Price Predictor</h1>
+    <form action="/predict" method="post">
+        Bedrooms: <input type="number" name="bedrooms" required><br>
+        Bathrooms: <input type="number" name="bathrooms" required><br>
+        Square Footage: <input type="number" name="squareft" required><br>
+        Postcode: <input type="text" name="postcode" required><br>
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction %}
+        <h2>Predicted Rent: £{{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
